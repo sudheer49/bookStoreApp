@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>BookStore</title>
+		<link rel = "stylesheet" data-th-href = "@{/css/style.css}" />
+	</head>
+	<body>
+	<div class="book__list__main">
+		<h3 class="book__list__main-heading">BookStore IT Books</h3>
+		<hr>
+		<div class="book__list">
+			<div class="book__list-book" th:each="book:${bookList}">
+				<div class="book__list-book-id">
+					<img th:alt="${book.getBookId()}" th:src="${book.getImage()}"/>
+				</div>
+				<div class="book__list-book-data">
+					<div th:text="${book.getName()}"></div>
+					<div th:text="${book.getPrice()}"></div>
+				</div>
+				<div class="book__list-book-more">
+					<button th:onclick="'location.href=\'/task/details/'+${book.getId()}+'\''">More>></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

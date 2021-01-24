@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>BookStore</title>
+		<link rel = "stylesheet" data-th-href = "@{/css/style.css}" />
+	</head>
+	<body>
+	<div class="login__main">
+		<h3 class="book__list__main-heading">Bookstore login</h3>
+		<hr>
+		<form class="login__main-form" action="/task/login" th:object="${loginForm}"  method="post">
+			<input  type="text" placeholder="E-Mail" th:field="*{email}" />
+			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+			<input  type="password" placeholder="Password" th:field="*{password}"/>
+			<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+			<input type="submit" value="Login >>">
+		</form>
+	</div>
+	</body>
+</html>
